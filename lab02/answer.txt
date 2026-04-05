@@ -21,3 +21,14 @@ Với kiểu dữ liệu nguyên thủy (int, float...), Java copy thẳng giá 
 
 Với Đối tượng , Java không truyền bản thân đối tượng đó đi. Thay vào đó, nó tạo ra một bản sao của địa chỉ bộ nhớ 
 và truyền cái địa chỉ đó vào hàm.
+Câu 4
+- After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two
+objects still remain?
+Khi gọi hàm swap, Java không truyền hai biến gốc đi. Thay vào đó, nó copy "địa chỉ bộ nhớ" 
+của jungleDVD và cinderellaDVD, sau đó đưa 2 bản copy này cho các biến cục bộ o1 và o2 bên trong hàm, 
+Việc đổi chỗ o1 = o2, o2 = tmp chỉ diễn ra trên 2 cái bản copy cục bộ đó.
+
+- After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is
+the title of the JungleDVD changed?
+Ở hàm change thì biến dvd và jungleDVD cùng trỏ đến 1 ô nhớ vì vậy khi dvd.setTitle(...) thực thi,
+nó đi theo địa chỉ đó và trực tiếp chỉnh sửa dữ liệu bên ô nhớ đó.
