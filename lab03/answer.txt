@@ -1,0 +1,23 @@
+1. What class should implement the Comparable interface?
+Lớp Media nên thực thi giao diện Comparable. Vì Media là lớp cha của DigitalVideoDisc, Book và CompactDisc, việc triển khai tại đây cho phép so sánh mọi thực thể trong giỏ hàng (itemsOrdered vốn là một danh sách các Media).
+
+2. How should you implement the compareTo() method?
+Phương thức compareTo() nên được triển khai bằng cách so sánh tiêu đề (title) trước, nếu tiêu đề trùng nhau thì mới so sánh đến giá thành (cost).
+
+Sử dụng phương thức this.title.compareTo(other.title) cho chuỗi.
+
+Nếu kết quả trả về là 0 (trùng tiêu đề), so sánh this.cost với other.cost.
+
+3. Can we have two ordering rules if we use Comparable?
+Không. Giao diện Comparable chỉ cho phép định nghĩa một quy tắc sắp xếp duy nhất (gọi là Natural Ordering). Nếu muốn có nhiều quy tắc khác nhau (như sắp xếp theo giá rồi mới đến tiêu đề), chúng ta bắt buộc phải sử dụng giao diện Comparator như cách bạn đã làm ở các bước trước.
+
+4. How to modify code for different ordering in DVDs?
+Để DVD có quy tắc sắp xếp riêng (Title -> Decreasing Length -> Cost), bạn cần thực hiện các bước sau:
+
+Ghi đè (Override) lại phương thức compareTo() ngay bên trong lớp DigitalVideoDisc.
+
+Logic: 1. So sánh title.
+2. Nếu trùng, so sánh length (lấy other.length - this.length để có thứ tự giảm dần).
+3. Nếu vẫn trùng, mới so sánh đến cost.
+
+Khi gọi Collections.sort(), Java sẽ tự động ưu tiên phương thức compareTo() đã được ghi đè ở lớp con (DVD) thay vì lớp cha (Media).
