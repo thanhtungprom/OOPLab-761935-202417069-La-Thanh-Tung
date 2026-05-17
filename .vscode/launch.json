@@ -1,0 +1,133 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Aims",
+            "request": "launch",
+            "mainClass": "hust.soict.hespi.aims.Aims",
+            "projectName": "AimProject"
+        },
+        {
+            "type": "java",
+            "name": "StoreTest",
+            "request": "launch",
+            "mainClass": "hust.soict.hespi.test.cart.StoreTest",
+            "projectName": "AimProject"
+        },
+        {
+            "type": "java",
+            "name": "TestPassingParameter",
+            "request": "launch",
+            "mainClass": "hust.soict.hespi.test.disc.TestPassingParameter",
+            "projectName": "AimProject"
+        },
+        {
+            "type": "java",
+            "name": "StoreTest(1)",
+            "request": "launch",
+            "mainClass": "hust.soict.hespi.test.store.StoreTest",
+            "projectName": "AimProject"
+        },
+        {
+            "type": "java",
+            "name": "ChoosingOption",
+            "request": "launch",
+            "mainClass": "JavaBasic/lab.ChoosingOption",
+            "projectName": "JavaBasic"
+        },
+        {
+            "type": "java",
+            "name": "InputFromKeyboard",
+            "request": "launch",
+            "mainClass": "JavaBasic/lab.InputFromKeyboard",
+            "projectName": "JavaBasic"
+        },
+        {
+            "type": "java",
+            "name": "AddingMatrix",
+            "request": "launch",
+            "mainClass": "AddingMatrix",
+            "projectName": "Matrix"
+        },
+        {
+            "type": "java",
+            "name": "NgayThang",
+            "request": "launch",
+            "mainClass": "NgayThang",
+            "projectName": "NgayThang"
+        },
+        {
+            "type": "java",
+            "name": "AWTAccumulator",
+            "request": "launch",
+            "mainClass": "AWTAccumulator",
+            "projectName": "OOP lab"
+        },
+        {
+            "type": "java",
+            "name": "NumberGrid",
+            "request": "launch",
+            "mainClass": "NumberGrid",
+            "projectName": "OOP lab"
+        },
+        {
+            "type": "java",
+            "name": "SwingAccumulator",
+            "request": "launch",
+            "mainClass": "SwingAccumulator",
+            "projectName": "OOP lab"
+        },
+        {
+            "type": "java",
+            "name": "ArraySorting",
+            "request": "launch",
+            "mainClass": "ArraySorting",
+            "projectName": "SortArray"
+        },
+        {
+            "type": "java",
+            "name": "Aims(1)",
+            "request": "launch",
+            "mainClass": "hust.soict.hespi.aims.Aims",
+            "projectName": "src"
+        },
+        {
+            "type": "java",
+            "name": "StoreTest(2)",
+            "request": "launch",
+            "mainClass": "hust.soict.hespi.test.cart.StoreTest",
+            "projectName": "src"
+        },
+        {
+            "type": "java",
+            "name": "TestPassingParameter(1)",
+            "request": "launch",
+            "mainClass": "hust.soict.hespi.test.disc.TestPassingParameter",
+            "projectName": "src"
+        },
+        {
+            "type": "java",
+            "name": "StoreTest(3)",
+            "request": "launch",
+            "mainClass": "hust.soict.hespi.test.store.StoreTest",
+            "projectName": "src"
+        },
+        {
+            "type": "java",
+            "name": "tamgiac",
+            "request": "launch",
+            "mainClass": "JavaBasic/triangle.tamgiac",
+            "projectName": "triangle"
+        }
+    ]
+}
