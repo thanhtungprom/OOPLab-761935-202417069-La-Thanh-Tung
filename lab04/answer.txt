@@ -1,23 +1,23 @@
-1. What class should implement the Comparable interface?
-Lớp Media nên thực thi giao diện Comparable. Vì Media là lớp cha của DigitalVideoDisc, Book và CompactDisc, việc triển khai tại đây cho phép so sánh mọi thực thể trong giỏ hàng (itemsOrdered vốn là một danh sách các Media).
+1. So sánh các vùng chứa cấp cao nhất (top-level containers) trong Swing và AWT
+Trong AWT, các vùng chứa cấp cao nhất (như Frame, Dialog) là các thành phần phụ thuộc vào hệ điều hành, 
+cho phép bạn thêm trực tiếp các thành phần con vào chúng. Ngược lại, Swing sử dụng các lớp tương ứng 
+(như JFrame, JDialog) và yêu cầu mọi thành phần giao diện phải được chèn vào một không gian trung gian 
+gọi là ContentPane thay vì chèn trực tiếp vào vùng chứa gốc.
 
-2. How should you implement the compareTo() method?
-Phương thức compareTo() nên được triển khai bằng cách so sánh tiêu đề (title) trước, nếu tiêu đề trùng nhau thì mới so sánh đến giá thành (cost).
+2. So sánh tên lớp của các thành phần trong AWT và tên lớp tương ứng trong Swing
+Cách phân biệt rất đơn giản: hầu hết các thành phần của Swing đều được thêm tiền tố "J" ở đầu tên lớp 
+để thể hiện chúng là các thành phần "nhẹ" tự vẽ bằng mã Java. 
+Ví dụ, các thành phần cơ bản như Button, Label hay TextField trong thư viện AWT sẽ có tên lớp tương 
+ứng là JButton, JLabel và JTextField ở bên thư viện Swing.
 
-Sử dụng phương thức this.title.compareTo(other.title) cho chuỗi.
+3. So sánh việc xử lý sự kiện của các ứng dụng Swing và AWT
+Cả hai thư viện về cơ bản đều dùng chung mô hình xử lý sự kiện quen thuộc từ gói java.awt.event.*. Tuy 
+nhiên, do Swing có các thành phần phức tạp hơn, nó được bổ sung thêm gói sự kiện riêng là javax.swing.event.*.
+Khác biệt cốt lõi nhất là AWT an toàn luồng (thread-safe), trong khi Swing thì không; mọi thao tác cập 
+nhật giao diện Swing bắt buộc phải được đẩy vào luồng phân phối sự kiện (Event Dispatch Thread).
 
-Nếu kết quả trả về là 0 (trùng tiêu đề), so sánh this.cost với other.cost.
-
-3. Can we have two ordering rules if we use Comparable?
-Không. Giao diện Comparable chỉ cho phép định nghĩa một quy tắc sắp xếp duy nhất (gọi là Natural Ordering). Nếu muốn có nhiều quy tắc khác nhau (như sắp xếp theo giá rồi mới đến tiêu đề), chúng ta bắt buộc phải sử dụng giao diện Comparator như cách bạn đã làm ở các bước trước.
-
-4. How to modify code for different ordering in DVDs?
-Để DVD có quy tắc sắp xếp riêng (Title -> Decreasing Length -> Cost), bạn cần thực hiện các bước sau:
-
-Ghi đè (Override) lại phương thức compareTo() ngay bên trong lớp DigitalVideoDisc.
-
-Logic: 1. So sánh title.
-2. Nếu trùng, so sánh length (lấy other.length - this.length để có thứ tự giảm dần).
-3. Nếu vẫn trùng, mới so sánh đến cost.
-
-Khi gọi Collections.sort(), Java sẽ tự động ưu tiên phương thức compareTo() đã được ghi đè ở lớp con (DVD) thay vì lớp cha (Media).
+4. So sánh giao diện hiển thị của các ứng dụng phát triển bằng Swing và AWT
+Ứng dụng AWT vay mượn các thành phần đồ họa gốc của hệ điều hành, do đó giao diện của nó sẽ tự động biến 
+đổi để trông giống môi trường đang chạy (ví dụ: chạy trên Windows sẽ ra giao diện Windows). Ngược lại, 
+Swing tự vẽ giao diện nên nó hỗ trợ tính năng "Pluggable Look and Feel", cho phép ứng dụng giữ nguyên một 
+thiết kế đồng nhất trên mọi hệ điều hành hoặc linh hoạt thay đổi "lớp áo" theo ý định của lập trình viên.
