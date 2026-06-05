@@ -65,17 +65,12 @@ public class NumberGrid extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e) {
             String button = e.getActionCommand();
-            
-            // Xử lý khi bấm các nút số (từ 0 đến 9)
             if(button.charAt(0) >= '0' && button.charAt(0) <= '9') {
                 tfDisplay.setText(tfDisplay.getText() + button);
             }
-            // Xử lý khi bấm nút "DEL" (Xóa ký tự cuối cùng)
             else if (button.equals("DEL")) {
                 String currentText = tfDisplay.getText();
-                // Chỉ xóa khi màn hình đang có chữ (độ dài > 0)
                 if (!currentText.isEmpty()) {
-                    // Cắt chuỗi từ đầu đến vị trí sát cuối cùng
                     tfDisplay.setText(currentText.substring(0, currentText.length() - 1));
                 }
             }
