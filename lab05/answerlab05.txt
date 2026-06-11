@@ -1,0 +1,31 @@
+Dưới đây là nội dung đã được thêm dấu tiếng Việt đầy đủ và định dạng lại để bạn dễ đọc hơn:
+
+Câu 1: Cấu trúc cơ bản của một ứng dụng JavaFX là gì?
+Một ứng dụng JavaFX sử dụng mô hình sân khấu (theater metaphor) để mô tả giao diện đồ họa. Bao gồm:
+
+Stage: Là container cấp cao nhất, tương ứng với cửa sổ ứng dụng.
+
+Scene: Chứa các control và thành phần giao diện. Một Stage tại một thời điểm chỉ hiển thị một Scene.
+
+Scene Graph: Là một cấu trúc cây phân cấp của các Node (nút) nằm trong Scene, bao gồm root node, branch nodes và leaf nodes.
+
+Câu 2: Nếu người dùng chỉ nhấn chuột (mouse down) mà không kéo (mouse drag) trong ứng dụng Painter, làm sao để dấu chấm vẫn hiển thị?
+Cần cấu hình thêm sự kiện On Mouse Pressed trong Scene Builder cho Pane drawingArea, và gán chung phương thức xử lý drawingAreaMouseDragged giống như sự kiện On Mouse Dragged. Khi đó cả hai hành động nhấn chuột và kéo chuột đều kích hoạt cùng một logic vẽ dấu chấm.
+
+Câu 3: Để TableView trong JavaFX tự động cập nhật giao diện khi dữ liệu danh sách thay đổi, ta cần dùng loại danh sách nào?
+Ta cần sử dụng ObservableList (ví dụ: ObservableList<Media>) thay vì dùng List thông thường. ObservableList cho phép TableView lắng nghe và tự động cập nhật giao diện mỗi khi có sự thay đổi về phần tử (thêm, xóa, sửa).
+
+Câu 4: Cơ chế (Mechanism) nào giúp liên kết các cột của TableView với các thuộc tính của đối tượng model?
+Sử dụng PropertyValueFactory. Lớp này sẽ nhận vào tên thuộc tính dưới dạng chuỗi (String) và tự động tìm phương thức getter tương ứng (get<thuoc_tinh>()) trong lớp model để lấy dữ liệu hiển thị lên ô của cột.
+
+Câu 5: Làm sao để thay đổi trạng thái các nút (như Play, Remove) dựa trên dòng được chọn trong TableView?
+Thông qua việc thêm một ChangeListener vào thuộc tính selectedItem của TableView (tblMedia.getSelectionModel().selectedItemProperty().addListener(...)). Mỗi khi dòng chọn thay đổi, phương thức changed() được gọi, từ đó ta kiểm tra giá trị mới và cập nhật ẩn/hiện hoàn toàn tự động thông qua một hàm như updateButtonBar().
+
+Câu 6: Làm sao để chuyển đổi giữa các màn hình (như Store Screen và Cart Screen) trong JavaFX?
+Ta tải file FXML của màn hình mới bằng FXMLLoader, sau đó lấy cửa sổ hiện tại (Stage) thông qua sự kiện (event.getSource().getScene().getWindow()) và thiết lập một Scene mới cho Stage đó bằng cách sử dụng stage.setScene(new Scene(rootNode)).
+
+Câu 7: Tại sao cơ chế ủy quyền ngoại lệ (exception delegation - throws) lại đặc biệt hữu ích cho các hàm khởi tạo (constructors)?
+Cơ chế này giúp ngăn chặn việc tạo ra một đối tượng lỗi hoặc không hợp lệ nếu có vi phạm về ràng buộc dữ liệu hoặc điều kiện logic. Khi constructor ném ra ngoại lệ, quá trình khởi tạo đối tượng sẽ bị hủy, đảm bảo tính toàn vẹn của dữ liệu hệ thống.
+
+Câu 8: Điều gì xảy ra khi bạn không cập nhật khối try-catch để bắt các ngoại lệ được tạo ra từ hàm play()?
+Trình biên dịch Java sẽ báo lỗi (Compile-time error) đối với các checked exception như PlayerException, không cho phép chương trình biên dịch thành công cho đến khi ngoại lệ đó được bắt bằng try-catch hoặc tiếp tục được khai báo ủy quyền bằng từ khóa throws ở chữ ký phương thức.
